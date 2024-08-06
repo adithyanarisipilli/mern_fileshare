@@ -13,6 +13,7 @@ function App() {
         const data = new FormData();
         data.append("name", file.name);
         data.append("file", file);
+        //sending the file to backend
         const response = await uploadFile(data);
         setResult(response.path);
       }
