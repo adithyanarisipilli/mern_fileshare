@@ -5,27 +5,22 @@ import cors from 'cors';
 import path from 'path';
 
 const __dirname = path.resolve();
-
-const app=express();
-
-
-
-
-
+const app = express();
 
 //middlewares
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 
-app.use('/',router);
+app.use('/', router);
 DBConnection();
 
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
     res.send('Hello world');
 });
 
-app.listen(8000,()=>{
-    console.log('Server is running on port 8000');
+// Use the environment variable PORT or default to 8000 if not available
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
-
