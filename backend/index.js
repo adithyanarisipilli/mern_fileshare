@@ -21,9 +21,9 @@ app.use(express.urlencoded({extended:true}));
 app.use('/',router);
 DBConnection();
 
-// app.get('/',(req,res)=>{
-//     res.send('Hello world');
-// });
+app.get('/',(req,res)=>{
+    res.send('Hello world');
+});
 
 app.listen(8000,()=>{
     console.log('Server is running on port 8000');
